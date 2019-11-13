@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel" />
+  <xs:complexType name="Session">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CDIDInfo" nillable="true" type="tns:CDID" />
+      <xs:element minOccurs="0" name="CalType" type="tns:CalendarType" />
+      <xs:element minOccurs="0" name="CompanyId" type="xs:int" />
+      <xs:element minOccurs="0" name="LastAccessed" type="xs:long" />
+      <xs:element minOccurs="0" name="LogId" type="xs:int" />
+      <xs:element minOccurs="0" name="LoginId" type="xs:int" />
+      <xs:element minOccurs="0" name="SessionId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeOutDuration" type="ser:duration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Session" nillable="true" type="tns:Session" />
+  <xs:complexType name="CDID">
+    <xs:sequence>
+      <xs:element name="CDIDValue" nillable="true" type="xs:string" />
+      <xs:element name="Expiry" nillable="true" type="tns:Date" />
+      <xs:element name="ModulesRights" nillable="true" type="tns:CDIDRights" />
+      <xs:element name="RegisteredTo" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_AIMS_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_DBType_x003E_k__BackingField" type="tns:DatabaseType" />
+      <xs:element name="_x003C_IsCRM_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IsFA_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IsFixedAsset_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IsFocus8_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IsHRMS_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IsInternational_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IsInv_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IsMRP_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IsMultiLingual_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IsMultiUser_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IsPOS_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IsPaymentDue_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IsPayroll_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IsRestaurant_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IsWebVersion_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_NumAuthLevels_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_NumCompanies_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_NumLinks_x003E_k__BackingField" type="xs:unsignedShort" />
+      <xs:element name="_x003C_NumMobilUsers_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_NumRDReps_x003E_k__BackingField" type="xs:unsignedShort" />
+      <xs:element name="_x003C_NumSyncLocations_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_NumTags_x003E_k__BackingField" type="xs:unsignedShort" />
+      <xs:element name="_x003C_NumUsers_x003E_k__BackingField" type="xs:unsignedShort" />
+      <xs:element name="_x003C_NumVoucherTypes_x003E_k__BackingField" type="xs:unsignedShort" />
+      <xs:element name="_x003C_NumWebUsers_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Type_x003E_k__BackingField" type="tns:SoftwareType" />
+      <xs:element name="_x003C_WMS_x003E_k__BackingField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CDID" nillable="true" type="tns:CDID" />
+  <xs:complexType name="Date">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Value" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Date" nillable="true" type="tns:Date" />
+  <xs:complexType name="CDIDRights">
+    <xs:sequence>
+      <xs:element name="FARights" nillable="true" type="tns:_FARights" />
+      <xs:element name="FixedAssetRights" nillable="true" type="tns:_FixedAssetRights" />
+      <xs:element name="HRMSRights" nillable="true" type="tns:_HRMSRights" />
+      <xs:element name="InvRights" nillable="true" type="tns:_InvRights" />
+      <xs:element name="POSRights" nillable="true" type="tns:_POSRights" />
+      <xs:element name="PayrollRights" nillable="true" type="tns:_PayrollRights" />
+      <xs:element name="RestaurantRights" nillable="true" type="tns:_RestaurantRights" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CDIDRights" nillable="true" type="tns:CDIDRights" />
+  <xs:complexType name="_FARights">
+    <xs:sequence>
+      <xs:element name="_x003C_ARAP_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_BI_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_BRS_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Barcode_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_BasicFA_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_BudgetPlanning_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_COGS_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_CreateCompanyTemplate_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_CreditManagement_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Cubes_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Dashboard_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_DepartmentAppropriation_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_DesignWorkflow_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_DuplicateCompany_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ExportImportSettings_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ExternalModules_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Graph_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_HirePurchase_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_InterCompanyTransactions_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_InvDesigner_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_LC_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MasterViews_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MultiCurrency_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MultipleTrees_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_NumUsers_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_PDC_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PrintExport_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ProvisionalEntries_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Recurringjournal_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ScheduleReport_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_TDS_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_TranSettings_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_TransactionViews_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Triggers_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_VAT_x003E_k__BackingField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_FARights" nillable="true" type="tns:_FARights" />
+  <xs:complexType name="_FixedAssetRights">
+    <xs:sequence>
+      <xs:element name="_x003C_AddReduceValue_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_CapitalizationAsset_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MultipleAssetUsage_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_NumUsers_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_ParkUnpark_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_TransferAsset_x003E_k__BackingField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_FixedAssetRights" nillable="true" type="tns:_FixedAssetRights" />
+  <xs:complexType name="_HRMSRights">
+    <xs:sequence>
+      <xs:element name="_x003C_AssetManagement_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_DisciplinaryActions_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_EmailSMSAlertsOnExpiryOfVisaPassport_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ExitInterview_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ExpenseClaimsManagement_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ImportCandidatefromexternalwebsite_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ImportCandidatefromxls_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_NumUsers_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Pickappraisalscorefromstoredprocedurewebservicedll_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_RecruitmentOnlineExam_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ReportingStuctureinESS_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_RequestManagement_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_TrainingBonds_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_TrainingCalendarintheESS_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_TrainingOnlineExam_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_TrainingPoints_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_TrainingRequestfromESS_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_TransferPromotionIncrements_x003E_k__BackingField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_HRMSRights" nillable="true" type="tns:_HRMSRights" />
+  <xs:complexType name="_InvRights">
+    <xs:sequence>
+      <xs:element name="_x003C_Batch_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Bins_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_NumUsers_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_OrderManagement_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_RMA_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_StockReconciliation_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_StockReservation_x003E_k__BackingField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_InvRights" nillable="true" type="tns:_InvRights" />
+  <xs:complexType name="_POSRights">
+    <xs:sequence>
+      <xs:element name="_x003C_Advancesearch_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Batches_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Cashin_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_CreateEditItem_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_CreditNote_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_CreditSaleAdjustment_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_CreditSale_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_CustomizabletouchscreenBarcodescanner_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Denominations_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_DiscountVoucher_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_EmployeeDiscountScheme_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Employee_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ExchangeSpoilage_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_FreeItems_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_GiftVoucher_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_HoldTransaction_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_HomeDelivery_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_KittingDeKitting_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MemberDiscountScheme_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MembershipLoyaltyManagement_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MessageBroadcasting_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Minandmaxquantitybasedpricing_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MultiCurrency_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MultiLanguageSupport_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MultiLocation_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MultipleSecuritylevels_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_NoSaleOpensCashdrawer_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_NormalSchemes_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_NumUsers_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Outletwisepricing_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_POSDefaultDashlets_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PaymentDiscountScheme_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PreOrder_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PurchaseHistory_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_RMA_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Recalltransaction_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_RecipeManagement_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_RefundPolicy_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Relateditems_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ReorderbasedautoIndenting_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ResourcePlanningShifts_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ReturnProcessing_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_SchemeSets_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ShowSalesman_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_SplitMergeBills_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_StockReconciliation_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Substituteitems_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_UnitWisepricing_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Upselling_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_cashcollection_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_cashout_x003E_k__BackingField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_POSRights" nillable="true" type="tns:_POSRights" />
+  <xs:complexType name="_PayrollRights">
+    <xs:sequence>
+      <xs:element name="_x003C_AirTicketManagement_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ApprovalThroughEmail_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ArrearCalculation_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_AuthorizationFlow_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_BasicPayroll_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_DashBoard_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_DownloadForm16fromESS_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ESSAPPRAISAL_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ESSLEAVEAPPLICATION_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ESS_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_EmailSMSAlertsForApprovals_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_EmailTemplateCustomization_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Esubmission_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Form16GenerationWithDigitalSignature_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_HoldingEmployeeSalary_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ImportDailyPayrollDataFromXlsSqlServer_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ImportShiftsFromXlsSqlServer_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ImportSwipeDataFromXlsSqlServer_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ImportmonthlyAttendanceFromXlsSqlServer_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_IndianStatutoryForms_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_LeaveEncashment_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_LoanDifferment_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_LoanPaymentAtEndOfService_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_LoanSettlment_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_NumUsers_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_OrganizationChart_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PasswordProtectedPayslip_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PayrollCalculationForMultipleEmployees_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PayslipEmail_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PayslipSMS_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PostingFullAttendanceForDailypayroll_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PostingFullAttendanceForMonthlyAttendance_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PostingFullAttendanceForSwipecard_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PrintFormatDesigner_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_SMSTemplateCustomization_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ScreenCustomization_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ShiftAssignment_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_TaxDeclarationFromESS_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_TaxproofsubmissionsFromESS_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_UAE_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_importSwipeDataUsingShedular_x003E_k__BackingField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_PayrollRights" nillable="true" type="tns:_PayrollRights" />
+  <xs:complexType name="_RestaurantRights">
+    <xs:sequence>
+      <xs:element name="_x003C_Advancesearch_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Batches_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Cashin_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_CreateEditItem_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_CreditNote_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_CreditSaleAdjustment_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_CreditSale_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_CustomizabletouchscreenBarcodescanner_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Denominations_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_DineIn_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_DiscountVoucher_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_EmployeeDiscountScheme_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Employee_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ExchangeSpoilage_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_FreeItems_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_GiftVoucher_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_HoldTransaction_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_HomeDelivery_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_KitchenRequest_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_KittingDeKitting_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MemberDiscountScheme_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MembershipLoyaltyManagement_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MenuCustomization_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MessageBroadcasting_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Minandmaxquantitybasedpricing_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MobileappfortakingordersWaitertab_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MultiCurrency_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MultiLanguageSupport_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MultiLocation_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_MultipleSecuritylevels_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_NoSaleOpensCashdrawer_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_NormalSchemes_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_NumUsers_x003E_k__BackingField" type="xs:int" />
+      <xs:element name="_x003C_Outletwisepricing_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_POSDefaultDashlets_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PaymentDiscountScheme_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PreOrder_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Printerconfiguration_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ProductModifier_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_PurchaseHistory_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_RMA_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Recalltransaction_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_RecipeManagement_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_RefundPolicy_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Relateditems_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ReorderbasedautoIndenting_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ResourcePlanningShifts_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ReturnProcessing_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_SchemeSets_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Sectionwisepricing_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Sectionwiserestrictions_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ShowSalesman_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_SplitMergeBills_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_StockReconciliation_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Substituteitems_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_TableReservations_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_UnitWisepricing_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Upselling_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_Void_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_cashcollection_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_cashout_x003E_k__BackingField" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="_RestaurantRights" nillable="true" type="tns:_RestaurantRights" />
+  <xs:simpleType name="DatabaseType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SQL" />
+      <xs:enumeration value="MySql" />
+      <xs:enumeration value="Oracle" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DatabaseType" nillable="true" type="tns:DatabaseType" />
+  <xs:simpleType name="SoftwareType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Lite" />
+      <xs:enumeration value="Standard" />
+      <xs:enumeration value="Professional" />
+      <xs:enumeration value="Enterprise" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SoftwareType" nillable="true" type="tns:SoftwareType" />
+  <xs:simpleType name="CalendarType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Gregorean" />
+      <xs:enumeration value="Hijri" />
+      <xs:enumeration value="Shamsi" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CalendarType" nillable="true" type="tns:CalendarType" />
+  <xs:complexType name="InvalidSessionException">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System.ServiceModel" base="q1:CommunicationException" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InvalidSessionException" nillable="true" type="tns:InvalidSessionException" />
+  <xs:complexType name="Param">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Length" type="xs:int" />
+      <xs:element minOccurs="0" name="ReturnArray" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Param" nillable="true" type="tns:Param" />
+  <xs:simpleType name="ServiceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Transaction" />
+      <xs:enumeration value="RD" />
+      <xs:enumeration value="Security" />
+      <xs:enumeration value="Payroll" />
+      <xs:enumeration value="Common" />
+      <xs:enumeration value="DataManagement" />
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="CoreMasters" />
+      <xs:enumeration value="CoreTransaction" />
+      <xs:enumeration value="CreditManagement" />
+      <xs:enumeration value="Home" />
+      <xs:enumeration value="Masters" />
+      <xs:enumeration value="Organization" />
+      <xs:enumeration value="Synchronization" />
+      <xs:enumeration value="DbMnt" />
+      <xs:enumeration value="Scheduler" />
+      <xs:enumeration value="POS" />
+      <xs:enumeration value="SynchronizationNode" />
+      <xs:enumeration value="TransactionNode" />
+      <xs:enumeration value="MastersNode" />
+      <xs:enumeration value="POSNode" />
+      <xs:enumeration value="CoreMastersNode" />
+      <xs:enumeration value="CoreTransactionNode" />
+      <xs:enumeration value="CreditManagementNode" />
+      <xs:enumeration value="OrganizationNode" />
+      <xs:enumeration value="FixedAssets" />
+      <xs:enumeration value="RestaurantPOS" />
+      <xs:enumeration value="ExternalPosting" />
+      <xs:enumeration value="ExternalCall" />
+      <xs:enumeration value="WMS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServiceType" nillable="true" type="tns:ServiceType" />
+</xs:schema>

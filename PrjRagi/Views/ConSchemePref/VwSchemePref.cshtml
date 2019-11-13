@@ -1,0 +1,167 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="../dist/simTree.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+<style>
+    html, body {
+        padding:10px;
+        margin:0px;
+    }
+body {
+    background: #FFFFFF;
+    font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+
+.container {
+    height:330px;
+    width: 100%;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+td{
+    width:100px;
+}
+
+.Cbo {
+  border: 1px solid #c4c4c4;
+  background-color: #fff;
+  padding: 3px 5px;
+  width: 100%;
+}
+.BtnCls{
+    height:25px;
+    width:110px;
+    border:none;
+    border-radius:3px;
+    background-color:#0073AA;
+    color:white;
+}
+
+.tdStyle {
+    width:50px;
+}
+
+th {
+    background-color:#0073AA;
+    color:#FFFFFF;
+}
+
+div.ui-datepicker{
+ font-size:11px;
+}
+
+.ChkdBox
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.7); /* IE */
+  -moz-transform: scale(1.7); /* FF */
+  -webkit-transform: scale(1.7); /* Safari and Chrome */
+  -o-transform: scale(1.7); /* Opera */
+  transform: scale(1.7);
+  padding: 10px;
+}
+</style>
+
+</head>
+
+<body>
+<h3 style="padding:3px;background-color:#0073AA;color:#FFFFFF;margin:0px;">Dealers Schemes Creation</h3>
+<div style="height:110px;background-color:#CCC;padding:5px;margin:0px;">
+    <table border="0" style="width:100%;">
+        <tr><td class="tdStyle">Document No.</td><td><input type="text" id="txtDocNo" readonly style="width:100%;"/></td><td style="width:20px;"></td><td class="tdStyle">Document Date</td><td><input type="text" id="txtDocDt" class="getdate" size="30" style="width:100%;"/></td><td style="width:20px;"></td><td class="tdStyle">Created By</td><td><input type="text" id="txtCreatedBy" readonly/></td></tr>
+        <tr><td class="tdStyle">Target Amount</td><td><input type="text" id="txtTargetAmt" onkeypress="return CheckNumeric()" onkeyup="FormatCurrency(this)" style="width:100%;" autocomplete="off"/></td><td style="width:20px;"></td><td class="tdStyle">Scheme Percentage</td><td><input type="text" id="txtSchemePct" style="width:100%;" maxlength="5" onkeyup="this.value = Pct(this.value, 0, 100)" autocomplete="off"/></td></tr>
+        <tr><td class="tdStyle">Scheme Name</td><td><input type="text" id="txtSchemeName" style="width:100%;" autocomplete="off" onblur="GetSchemeExistFlag()" /></td><td style="width:20px;"></td><td class="tdStyle">Scheme Active</td><td><input type="checkbox" id="SchemeFlag" class="ChkdBox" /></td></tr>
+        <tr><td class="tdStyle">Effective From</td><td><input type="text" class="getdate" id="FromDate" style="width:100%;" autocomplete="off"></td><td style="width:20px;"></td><td class="tdStyle">Effective To</td><td><input type="text" class="getdate" id="ToDate" size="30" style="width:100%;" autocomplete="off"></td></tr>
+    </table>
+</div>
+
+<div class="container">
+    <div id="AccTree" style="float:left !important;border:1px solid #CCC;height:100%;width:49%;overflow-x: auto;overflow-y: scroll;">&nbsp;<b>Accounts</b></div>
+    <div id="ProdTree" style="float:right !important;border:1px solid #CCC;height:100%;width:50%;overflow-x: auto;overflow-y: scroll;">&nbsp;<b>Products</b></div>
+</div>
+
+<div style="float:left;">
+    <select id="SchemeNames" class="Cbo">
+    </select>
+</div>
+
+        <div style="float:right;">
+            <input type="reset" class="BtnCls" value="New" onclick="Flush()" />&nbsp;<input type="button" class="BtnCls" value="Save" onclick="SaveScheme()" />&nbsp;<input type="button" class="BtnCls" value="Search" onclick="SearchScheme()" />&nbsp;<input type="button" class="BtnCls" value="Cancel" id="BtnCancel" onclick="Focus8WAPI.gotoHomePage()" />
+        </div>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/FClient.js"></script>
+        <script src="../dist/simTree.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <script>
+            $(window).on("load", function () {
+                getSetPropertyForMastersField();
+            });
+
+            $(".getdate").each(function () {
+                $(this).datepicker({
+                    dateFormat: "dd-mm-yy",
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-60:+0",
+                });
+            });
+
+            //$("#txtTargetAmt").on("keypress keyup blur", function (event) {
+            //    $(this).val($(this).val().replace(/[^\d].+/, ""));
+            //    if ((event.which < 48 || event.which > 57)) {
+            //        event.preventDefault();
+            //    }
+
+            //});
+
+            function Flush() {
+                location.reload(true);
+                GetDocNo();
+            }
+
+
+            function FormatCurrency(ctrl) {
+                //Check if arrow keys are pressed - we want to allow navigation around textbox using arrow keys
+                if (event.keyCode == 37 || event.keyCode == 38 || event.keyCode == 39 || event.keyCode == 40) {
+                    return;
+                }
+
+                var val = ctrl.value;
+
+                val = val.replace(/,/g, "")
+                ctrl.value = "";
+                val += '';
+                x = val.split('.');
+                x1 = x[0];
+                x2 = x.length > 1 ? '.' + x[1] : '';
+
+                var rgx = /(\d+)(\d{3})/;
+
+                while (rgx.test(x1)) {
+                    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                }
+
+                ctrl.value = x1 + x2;
+            }
+
+            function CheckNumeric() {
+                return event.keyCode >= 48 && event.keyCode <= 57 || event.keyCode == 46;
+            }
+
+        </script>
+</body>
+</html>
+

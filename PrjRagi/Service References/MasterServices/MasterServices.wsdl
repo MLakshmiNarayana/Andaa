@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MasterServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="wsHttpMasterServices_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" />
+      <xsd:import schemaLocation="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel" />
+      <xsd:import schemaLocation="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMasterServices_SetSessions_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSessions" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_SetSessions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSessionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_SetSessions_InvalidSessionExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" name="detail" element="q1:InvalidSessionException" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_GetCompanyId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_GetCompanyId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_GetCompanyId_InvalidSessionExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" name="detail" element="q2:InvalidSessionException" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_GetLoginId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoginId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_GetLoginId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLoginIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_GetLoginId_InvalidSessionExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" name="detail" element="q3:InvalidSessionException" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_GetLogId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogId" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_GetLogId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_GetLogId_InvalidSessionExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" name="detail" element="q4:InvalidSessionException" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_SetSessionLastAccessed_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSessionLastAccessed" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_SetSessionLastAccessed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSessionLastAccessedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_SetSessionLastAccessed_InvalidSessionExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" name="detail" element="q5:InvalidSessionException" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_LogoutSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutSession" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_LogoutSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_LogoutSession_InvalidSessionExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" name="detail" element="q6:InvalidSessionException" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_ServeRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ServeRequest" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_ServeRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ServeRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_ServeRequest_InvalidSessionExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" name="detail" element="q7:InvalidSessionException" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_CreateAndSendReminders_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAndSendReminders" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_CreateAndSendReminders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAndSendRemindersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_CreateAndSendReminders_InvalidSessionExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" name="detail" element="q8:InvalidSessionException" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_AutoPostInterestCalculation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutoPostInterestCalculation" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_AutoPostInterestCalculation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoPostInterestCalculationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMasterServices_AutoPostInterestCalculation_InvalidSessionExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" name="detail" element="q9:InvalidSessionException" />
+  </wsdl:message>
+  <wsdl:portType name="IMasterServices">
+    <wsdl:operation name="SetSessions">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionMgmt/SetSessions" message="tns:IMasterServices_SetSessions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionMgmt/SetSessionsResponse" message="tns:IMasterServices_SetSessions_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISessionMgmt/SetSessionsInvalidSessionExceptionFault" name="InvalidSessionExceptionFault" message="tns:IMasterServices_SetSessions_InvalidSessionExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionMgmt/GetCompanyId" message="tns:IMasterServices_GetCompanyId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionMgmt/GetCompanyIdResponse" message="tns:IMasterServices_GetCompanyId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISessionMgmt/GetCompanyIdInvalidSessionExceptionFault" name="InvalidSessionExceptionFault" message="tns:IMasterServices_GetCompanyId_InvalidSessionExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionMgmt/GetLoginId" message="tns:IMasterServices_GetLoginId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionMgmt/GetLoginIdResponse" message="tns:IMasterServices_GetLoginId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISessionMgmt/GetLoginIdInvalidSessionExceptionFault" name="InvalidSessionExceptionFault" message="tns:IMasterServices_GetLoginId_InvalidSessionExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLogId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionMgmt/GetLogId" message="tns:IMasterServices_GetLogId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionMgmt/GetLogIdResponse" message="tns:IMasterServices_GetLogId_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISessionMgmt/GetLogIdInvalidSessionExceptionFault" name="InvalidSessionExceptionFault" message="tns:IMasterServices_GetLogId_InvalidSessionExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSessionLastAccessed">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionMgmt/SetSessionLastAccessed" message="tns:IMasterServices_SetSessionLastAccessed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionMgmt/SetSessionLastAccessedResponse" message="tns:IMasterServices_SetSessionLastAccessed_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISessionMgmt/SetSessionLastAccessedInvalidSessionExceptionFault" name="InvalidSessionExceptionFault" message="tns:IMasterServices_SetSessionLastAccessed_InvalidSessionExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogoutSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISessionMgmt/LogoutSession" message="tns:IMasterServices_LogoutSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISessionMgmt/LogoutSessionResponse" message="tns:IMasterServices_LogoutSession_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ISessionMgmt/LogoutSessionInvalidSessionExceptionFault" name="InvalidSessionExceptionFault" message="tns:IMasterServices_LogoutSession_InvalidSessionExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ServeRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterServices/ServeRequest" message="tns:IMasterServices_ServeRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterServices/ServeRequestResponse" message="tns:IMasterServices_ServeRequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMasterServices/ServeRequestInvalidSessionExceptionFault" name="InvalidSessionExceptionFault" message="tns:IMasterServices_ServeRequest_InvalidSessionExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAndSendReminders">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterServices/CreateAndSendReminders" message="tns:IMasterServices_CreateAndSendReminders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterServices/CreateAndSendRemindersResponse" message="tns:IMasterServices_CreateAndSendReminders_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMasterServices/CreateAndSendRemindersInvalidSessionExceptionFault" name="InvalidSessionExceptionFault" message="tns:IMasterServices_CreateAndSendReminders_InvalidSessionExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoPostInterestCalculation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMasterServices/AutoPostInterestCalculation" message="tns:IMasterServices_AutoPostInterestCalculation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMasterServices/AutoPostInterestCalculationResponse" message="tns:IMasterServices_AutoPostInterestCalculation_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IMasterServices/AutoPostInterestCalculationInvalidSessionExceptionFault" name="InvalidSessionExceptionFault" message="tns:IMasterServices_AutoPostInterestCalculation_InvalidSessionExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsHttpMasterServices" type="tns:IMasterServices">
+    <wsp:PolicyReference URI="#wsHttpMasterServices_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetSessions">
+      <soap12:operation soapAction="http://tempuri.org/ISessionMgmt/SetSessions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSessionExceptionFault">
+        <soap12:fault use="literal" name="InvalidSessionExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyId">
+      <soap12:operation soapAction="http://tempuri.org/ISessionMgmt/GetCompanyId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSessionExceptionFault">
+        <soap12:fault use="literal" name="InvalidSessionExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoginId">
+      <soap12:operation soapAction="http://tempuri.org/ISessionMgmt/GetLoginId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSessionExceptionFault">
+        <soap12:fault use="literal" name="InvalidSessionExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogId">
+      <soap12:operation soapAction="http://tempuri.org/ISessionMgmt/GetLogId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSessionExceptionFault">
+        <soap12:fault use="literal" name="InvalidSessionExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetSessionLastAccessed">
+      <soap12:operation soapAction="http://tempuri.org/ISessionMgmt/SetSessionLastAccessed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSessionExceptionFault">
+        <soap12:fault use="literal" name="InvalidSessionExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LogoutSession">
+      <soap12:operation soapAction="http://tempuri.org/ISessionMgmt/LogoutSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSessionExceptionFault">
+        <soap12:fault use="literal" name="InvalidSessionExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ServeRequest">
+      <soap12:operation soapAction="http://tempuri.org/IMasterServices/ServeRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSessionExceptionFault">
+        <soap12:fault use="literal" name="InvalidSessionExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAndSendReminders">
+      <soap12:operation soapAction="http://tempuri.org/IMasterServices/CreateAndSendReminders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSessionExceptionFault">
+        <soap12:fault use="literal" name="InvalidSessionExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AutoPostInterestCalculation">
+      <soap12:operation soapAction="http://tempuri.org/IMasterServices/AutoPostInterestCalculation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSessionExceptionFault">
+        <soap12:fault use="literal" name="InvalidSessionExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MasterServices">
+    <wsdl:port name="wsHttpMasterServices" binding="tns:wsHttpMasterServices">
+      <soap12:address location="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc/wsHttpMasterServices" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc/wsHttpMasterServices</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

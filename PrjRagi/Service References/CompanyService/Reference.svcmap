@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a03bfb76-f2e6-4a86-b98a-c43594439ce3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/Focus8Library/CompanyService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CompanyService.xsd" MetadataType="Schema" ID="08a6d67a-f398-4152-a864-3f5d7a60446e" SourceId="1" SourceUrl="http://localhost/Focus8Library/CompanyService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CompanyService.wsdl" MetadataType="Wsdl" ID="a5a3bdc4-338a-4e74-b5b9-12ed3c0d60ca" SourceId="1" SourceUrl="http://localhost/Focus8Library/CompanyService.svc?wsdl" />
+    <MetadataFile FileName="CompanyService.disco" MetadataType="Disco" ID="164d83f9-d05b-4a32-9bd2-5d32450b570f" SourceId="1" SourceUrl="http://localhost/Focus8Library/CompanyService.svc?disco" />
+    <MetadataFile FileName="CompanyService1.xsd" MetadataType="Schema" ID="12ac23bc-38da-4960-b1f8-6a739ab574d4" SourceId="1" SourceUrl="http://localhost/Focus8Library/CompanyService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CompanyService2.xsd" MetadataType="Schema" ID="5b51e1fa-236c-4982-af23-fe24cd65293c" SourceId="1" SourceUrl="http://localhost/Focus8Library/CompanyService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CompanyService3.xsd" MetadataType="Schema" ID="846877f1-a43c-4b15-a57e-b374dfa96009" SourceId="1" SourceUrl="http://localhost/Focus8Library/CompanyService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

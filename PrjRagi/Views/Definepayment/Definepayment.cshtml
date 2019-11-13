@@ -1,0 +1,368 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+
+    <style>
+        html, body {
+            padding: 10px;
+            margin: 0px;
+            user-select: none; /* supported by Chrome and Opera */
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+        }
+
+        body {
+            background: #FFFFFF;
+            font: 13px/1.4 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+        }
+
+        .BtnCls {
+            height: 25px;
+            width: 130px;
+            border: none;
+            border-radius: 3px;
+            background-color: #0073AA;
+            color: white;
+        }
+
+        th {
+            background-color: #0073AA;
+            color: #FFFFFF;
+        }
+
+        .TblBody {
+            color: #4B4B4B;
+            border: solid 1px #DCDCDC;
+            font: 12px/1.2 Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+        }
+
+        #ItemsBody {
+            text-align: Center;
+            background-color: #0073AA;
+            color: #FFFFFF;
+            border: solid 1px #FFFFFF;
+        }
+
+        div.ui-datepicker {
+            font-size: 11px;
+        }
+
+        td {
+            width: 130px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 99;
+        }
+
+        .Prog {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            background-image: url(https://raw.githubusercontent.com/niklausgerber/PreLoadMe/master/img/status.gif);
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: -100px 0 0 -100px;
+        }
+        /*table thead tr td{
+            width:50%;
+        }*/
+        .modal-confirm {
+            color: #636363;
+            width: 400px;
+        }
+            .modal-confirm .modal-content {
+                padding: 20px;
+                border-radius: 5px;
+                border: none;
+                text-align: center;
+                font-size: 14px;
+            }
+
+            .modal-confirm .modal-header {
+                border-bottom: none;
+                position: relative;
+            }
+
+            .modal-confirm h4 {
+                text-align: center;
+                font-size: 26px;
+                margin: 30px 0 -10px;
+            }
+
+            .modal-confirm .close {
+                position: absolute;
+                top: -5px;
+                right: -2px;
+            }
+
+            .modal-confirm .modal-body {
+                color: #999;
+            }
+
+            .modal-confirm .modal-footer {
+                border: none;
+                text-align: center;
+                border-radius: 5px;
+                font-size: 13px;
+                padding: 10px 15px 25px;
+            }
+
+                .modal-confirm .modal-footer a {
+                    color: #999;
+                }
+
+            .modal-confirm .icon-box {
+                width: 80px;
+                height: 80px;
+                margin: 0 auto;
+                border-radius: 50%;
+                z-index: 9;
+                text-align: center;
+                border: 3px solid #f15e5e;
+            }
+
+                .modal-confirm .icon-box i {
+                    color: #f15e5e;
+                    font-size: 46px;
+                    display: inline-block;
+                    margin-top: 13px;
+                }
+
+            .modal-confirm .btn {
+                color: #fff;
+                border-radius: 4px;
+                background: #60c7c1;
+                text-decoration: none;
+                transition: all 0.4s;
+                line-height: normal;
+                min-width: 120px;
+                border: none;
+                min-height: 40px;
+                border-radius: 3px;
+                margin: 0 5px;
+                outline: none !important;
+            }
+
+            .modal-confirm .btn-info {
+                background: #c1c1c1;
+            }
+
+                .modal-confirm .btn-info:hover, .modal-confirm .btn-info:focus {
+                    background: #a8a8a8;
+                }
+
+            .modal-confirm .btn-danger {
+                background: #f15e5e;
+            }
+
+                .modal-confirm .btn-danger:hover, .modal-confirm .btn-danger:focus {
+                    background: #ee3535;
+                }
+
+        #trigger-btn {
+            display: inline-block;
+        }
+        #check{
+            width:20px;
+        }
+    </style>
+</head>
+<body>
+    <h3 style="padding:3px;background-color:#0073AA;color:#FFFFFF;margin:0px;">Define Payment</h3>
+    <div id="tbldiv" style="height:35px;background-color:#CCC;padding:5px;margin:0px;">
+        <table id="tblheaders" border="0" style="width:100%;border-collapse:collapse;">
+            <tr>
+                <td>From Date</td>
+                <td><input type="text" class="getdate" id="FromDate" style="width:100%;" autocomplete="off"></td>
+                <td>To Date</td>
+                <td><input type="text" class="getdate" id="ToDate" style="width:100%;" autocomplete="off"></td>
+                <td>Payment Type</td>
+                <td><select style="width:130px;" id="Paymenttype"><option selected="selected" value="0">Prepaid</option><option value="1">Recurring</option><option value="2">Reconciled</option></select></td>
+                <td><input type="button" id="load" value="Load" class="BtnCls" onclick="Loaddetails()" /></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="preloader">
+        <div id="status1" class="Prog">&nbsp;</div>
+    </div>
+    <div id="tree" class="table-responsive" style="height:400px;overflow-x: auto;overflow-y:scroll;">
+        <table class="" id="DefReconciledtbl" border="0" style="border-collapse:collapse;display:none">
+            <thead>
+                <tr>
+                    <td id="ItemsBody"class="col-md-2" scope="col">S.No</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">VendorName</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Purchase Invoice</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Received Date</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Stock Balance</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">image/photo</td>
+                    <td id="ItemsBody"class="col-md-2" scope="col">DueDate</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Dueamount</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">select</td>
+                    <td id="ItemsBody" class="col-md-2" scope="col">To Pay</td>
+                    <td id="ItemsBody" class="col-md-2" scope="col">To Pay Amount</td>
+                    <td id="ItemsBody">Acc payment mode</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Currency</td>                 
+                    <td id="ItemsBody"class="col-md-2"scope="col">Vendor attachment</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Last Update</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">BenificeryName</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Benificery Account No</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Bank</td>
+                    <td id="ItemsBody"style="display:none">DPM_amount</td>
+                    <td id="ItemsBody"style="display:none">IcurrencyId</td>
+                    <td id="ItemsBody"style="display:none">AccountId</td>
+                    <td id="ItemsBody"style="display:none">s64image</td>
+                    <td id="ItemsBody"style="display:none">s64vendorattch</td>
+                
+                    @*<td class="ItemsBody"style="display:none">All payment mode</td>*@
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <table class="" id="Defprepaidtbl" border="0" style="border-collapse:collapse;display:none">
+            <thead>
+                <tr>
+                    <td id="ItemsBody"class="col-md-2"scope="col">S.No</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Vendor Name</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Expense</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Voucher No</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Last Update</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Last Payment</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Rent Term</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">DueDate</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Due Amount</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Select</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">To Pay</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">To pay amount</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">BenificeryName</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Benificery Account No</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Bank</td>
+                    <td id="ItemsBody" style="display:none">DPM_amount</td>
+                    <td id="ItemsBody" style="display:none">IcurrencyId</td>
+                    <td id="ItemsBody" style="display:none">AccountId</td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <table id="DefRecuring" class="" border="0" style="border-collapse:collapse;display:none">
+            <thead>
+                <tr> 
+                    <td id="ItemsBody"class="col-md-2"scope="col">S.No</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Account</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Expense</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Voucher No</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Last Update </td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Last Payment</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">BillDate</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">DueDate</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Due Amount</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Select</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">To Pay</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">To pay amount</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">BenificeryName</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Benificery Account No</td>
+                    <td id="ItemsBody"class="col-md-2"scope="col">Bank</td>
+                    <td id="ItemsBody" style="display:none">DPM_amount</td>
+                    <td id="ItemsBody" style="display:none">IcurrencyId</td>
+                    <td id="ItemsBody" style="display:none">AccountId</td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div style="height:35px;background-color:#CCC;padding-top:7px;padding-right:5px;text-align:right;">
+        <span style="color:#0000FF;float:left;">*If you want to change the Filters and Reload,Please click the Clear Button</span>&nbsp;<input type="button" value="Post" onclick="postcheck()" class="BtnCls"/>&nbsp;<input type="button" value="Clear" href="#myModal" data-toggle="modal" class="BtnCls" id="trigger-btn" />&nbsp;<input type="button" value="Cancel" class="BtnCls" onclick="Focus8WAPI.gotoHomePage()" />
+    </div>
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="icon-box">
+                        <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="modal-title">Are you sure?</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Modified data will be lost</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" onclick="cleardata()">Clear</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="postmodel" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="icon-box">
+                        <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    </div>
+                    <h4 class="modal-title">Are you sure to Post?</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-danger" onclick="PostDefinepayment()">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../dist/simTree.js"></script>
+    <script src="~/Config.js"></script>
+    <script src="~/Scripts/FClient.js"></script>
+    <script>
+        $(".getdate").each(function () {
+            $(this).datepicker({
+                dateFormat: "dd-mm-yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0",
+            });
+        });
+
+        $(window).on("load", function () {
+            getSetPropertyForMastersField();
+            $("#preloader").hide();
+        });
+
+        //$("#FromDate").val('01-01-2019');
+        //$("#ToDate").val('31-12-2019');
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" />
+  <xs:element name="SetSessions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="m_Sessions" nillable="true" type="q1:ArrayOfKeyValueOfstringSessionMgTd7uOi" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSessionsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompanyId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSessionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompanyIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCompanyIdResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLoginId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSessionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLoginIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLoginIdResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLogId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSessionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLogIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLogIdResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSessionLastAccessed">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSessionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="iDateTime" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetSessionLastAccessedResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutSession">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="strSessionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutSessionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServeRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" minOccurs="0" name="Params" nillable="true" type="q2:Param" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" minOccurs="0" name="type" type="q3:ServiceType" />
+        <xs:element minOccurs="0" name="strSessionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServeRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" minOccurs="0" name="ServeRequestResult" nillable="true" type="q4:Param" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAndSendReminders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iCompanyId" type="xs:int" />
+        <xs:element minOccurs="0" name="iReminderTermsId" type="xs:int" />
+        <xs:element minOccurs="0" name="bIsBillWise" type="xs:boolean" />
+        <xs:element minOccurs="0" name="iLocationId" type="xs:int" />
+        <xs:element minOccurs="0" name="iCreatedBy" type="xs:int" />
+        <xs:element minOccurs="0" name="bIsMailNow" type="xs:boolean" />
+        <xs:element minOccurs="0" name="AuthenticationType" type="xs:int" />
+        <xs:element minOccurs="0" name="EnableSecureConnection" type="xs:boolean" />
+        <xs:element minOccurs="0" name="FromPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FromUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FullEmailId" type="xs:boolean" />
+        <xs:element minOccurs="0" name="MailServerRequires" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Port" type="xs:int" />
+        <xs:element minOccurs="0" name="SecureConnection" type="xs:int" />
+        <xs:element minOccurs="0" name="SecurePassword" type="xs:boolean" />
+        <xs:element minOccurs="0" name="SettingsType" type="xs:int" />
+        <xs:element minOccurs="0" name="SMTPAdress" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SSLPort" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAndSendRemindersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateAndSendRemindersResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoPostInterestCalculation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="iCompanyId" type="xs:int" />
+        <xs:element minOccurs="0" name="iLoginId" type="xs:int" />
+        <xs:element minOccurs="0" name="iLogId" type="xs:int" />
+        <xs:element minOccurs="0" name="iFinanceChargeTermId" type="xs:int" />
+        <xs:element minOccurs="0" name="iUserId" type="xs:int" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" minOccurs="0" name="objCalendarType" type="q5:CalendarType" />
+        <xs:element minOccurs="0" name="bIsAutoPostInterest" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoPostInterestCalculationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AutoPostInterestCalculationResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

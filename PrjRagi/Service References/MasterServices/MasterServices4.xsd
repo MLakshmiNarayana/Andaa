@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" />
+  <xs:complexType name="ArrayOfKeyValueOfstringSessionMgTd7uOi">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringSessionMgTd7uOi">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Focus.Common.DataStructs" name="Value" nillable="true" type="q1:Session" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueOfstringSessionMgTd7uOi" nillable="true" type="tns:ArrayOfKeyValueOfstringSessionMgTd7uOi" />
+</xs:schema>

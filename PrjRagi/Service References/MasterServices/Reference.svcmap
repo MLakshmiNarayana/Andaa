@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0a0e90d5-fea0-4a14-9f68-61a3ccff58f2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/Focus.MasterServices.Web/MasterServices.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MasterServices.xsd" MetadataType="Schema" ID="d167a262-0cc7-4701-9cf2-03cb11958671" SourceId="1" SourceUrl="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd5" />
+    <MetadataFile FileName="MasterServices.wsdl" MetadataType="Wsdl" ID="941c6ca1-d169-4fd2-8851-618fbcf90f05" SourceId="1" SourceUrl="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?wsdl" />
+    <MetadataFile FileName="MasterServices1.xsd" MetadataType="Schema" ID="28c3633b-ec1b-43a4-8f9f-2e3b01687d1d" SourceId="1" SourceUrl="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd1" />
+    <MetadataFile FileName="MasterServices2.xsd" MetadataType="Schema" ID="200761ea-97ab-486d-a203-ae923e87c55d" SourceId="1" SourceUrl="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd0" />
+    <MetadataFile FileName="MasterServices3.xsd" MetadataType="Schema" ID="9df93ff4-c20a-45c2-8259-cbdaf5defd82" SourceId="1" SourceUrl="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd3" />
+    <MetadataFile FileName="MasterServices4.xsd" MetadataType="Schema" ID="f3499ab3-aa34-42d9-b95d-52e2de9970e5" SourceId="1" SourceUrl="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd2" />
+    <MetadataFile FileName="MasterServices.disco" MetadataType="Disco" ID="3eac7582-1e81-48e4-92a0-5bad456dceed" SourceId="1" SourceUrl="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?disco" />
+    <MetadataFile FileName="MasterServices5.xsd" MetadataType="Schema" ID="ccd261b4-563a-4314-8d2f-c2fd3d4be266" SourceId="1" SourceUrl="http://focus-vb-5.focusnetcom.com/Focus.MasterServices.Web/MasterServices.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
